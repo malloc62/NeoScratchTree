@@ -1,0 +1,33 @@
+#area-main {
+    width: 10000px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+}
+
+body {
+    overflow-x: scroll;
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(#000000,#23272a);
+    background-attachment: fixed;
+}
+
+#area-main a {
+    font-size: 24px;
+    width: 120px;
+    height: 90px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: absolute;
+}
+
+#area-main div {
+    background: white;
+    width: 2px;
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    background: #64676a;
+}
