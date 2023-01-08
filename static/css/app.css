@@ -24,6 +24,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    overflow: hidden;
 }
 
 #area-main a {
@@ -56,6 +58,7 @@ body {
     width: calc(100vw - 20px);
     padding-top: 10px;
 
+    z-index: 1;
 }
 
 #ui-right {
