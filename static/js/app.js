@@ -1,3 +1,5 @@
+var area = document.querySelector('#area-main');    
+
 function genPos(id, fetchData) {
 	var queue = [id];    
     

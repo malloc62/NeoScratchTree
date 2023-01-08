@@ -1,4 +1,4 @@
-const treeWidth = 2;
+const treeWidth = 4;
 const treeHeight = 120;
 const magConst = 150;
 
@@ -48,7 +48,7 @@ function genEntry(posEntry,area,fetchData) {
         {
             "pos": {
                 "left": x,
-                "top": y + itemHeight / 2,
+                "top": y,
             },
             "direct": {
                 "href": 'https://scratch.mit.edu/projects/' + posEntry.id
@@ -67,19 +67,20 @@ function genEntry(posEntry,area,fetchData) {
         }
     );
  
-    genElement(
-        "div",
-        area,
-        "",
-        {
-            "pos": {
-                "left": x + (itemWidth / 2),
-                "top": y - treeHeight + itemHeight,
-                "width": treeWidth,
-                "height": treeHeight * 2 - itemHeight
-            },
-        }
-    );
+    if (posEntry.y > 0)
+        genElement(
+            "div",
+            area,
+            "",
+            {
+                "pos": {
+                    "left": x + (itemWidth / 2),
+                    "top": y - treeHeight + itemHeight / 2,
+                    "width": treeWidth,
+                    "height": treeHeight * 2 - itemHeight
+                },
+            }
+        );
 
 
     if (posEntry.offbranch >= 0)
@@ -90,7 +91,7 @@ function genEntry(posEntry,area,fetchData) {
             {
                 "pos": {
                     "left": x + (itemWidth / 2),
-                    "top": y + itemHeight,
+                    "top": y + itemHeight / 2,
                     "height": treeWidth,
                     "width": magConst * (posEntry.offbranch)
                 },
@@ -102,7 +103,7 @@ async function genTree() {
     var area = document.querySelector('#area-main');   
     
     var params = new URLSearchParams(window.location.search);
-    var treeId = params.get("id");
+    var treeId = params.get("id").replace(/[^0-9]/g,'');
 
     var fetchData = await fetch(`https://scratch.mit.edu/projects/${treeId}/remixtree/bare`)
         .then(x => x.json());
