@@ -1,4 +1,5 @@
 var keys = {};
+
 var vel = [0,0];
 var pos = [0,0];
 
@@ -11,8 +12,9 @@ document.addEventListener('keyup', function(e) {
 });
 
 window.setInterval(function() {
-    vel[0] += (keys['a'] ? 1 : 0) - (keys['d'] ? 1 : 0);
-    vel[1] += (keys['w'] ? 1 : 0) - (keys['s'] ? 1 : 0);
+    var isShift = keys['q'];
+    vel[0] += ((keys['a'] ? 1 : 0) - (keys['d'] ? 1 : 0)) * (isShift ? 5 : 1);
+    vel[1] += ((keys['w'] ? 1 : 0) - (keys['s'] ? 1 : 0)) * (isShift ? 5 : 1);
 
     vel[0] *= 0.9;
     vel[1] *= 0.9;
