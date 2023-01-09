@@ -1,4 +1,4 @@
-const treeWidth = 4;
+const treeWidth = 2;
 const treeHeight = 120;
 const magConst = 150;
 

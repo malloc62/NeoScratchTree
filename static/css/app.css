@@ -8,6 +8,12 @@
 
 :root {
     font-family: 'Open Sans', sans-serif;
+    color: var(--black);
+
+    --black: rgb(25,28,35);
+    --semiblack: rgb(105,108,115);
+    --semiwhite: rgb(215,218,225);
+    --white: rgb(255,255,255);
 }
 
 body {
@@ -15,7 +21,7 @@ body {
     width: 100vw;
     height: 100vh;
 
-    background: url(/img/bg.svg);
+    background: var(--white);
     background-attachment: fixed;
 
     margin: 0;
@@ -35,14 +41,34 @@ body {
     border-radius: 15px;
     overflow: hidden;
     position: absolute;
+    background: var(--semiwhite);
+}
+
+#area-main img  {
+    border-radius: 15px;
 }
 
 #area-main div {
-    background: white;
     display: inline-block;
     position: absolute;
     z-index: -1;
-    background: #8da5b0;
+    background: var(--semiblack);
+
+    overflow: visible;
+}
+
+#area-main div:before {
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: var(--semiblack);
+
+    margin-top: -8px;
+    margin-left: -8px;
+
+    filter: drop-shadow(0 0 15px var(--semiblack));
 }
 
 #area-main a, #area-main div {
@@ -65,9 +91,16 @@ body {
     text-align: right;
 }
 
+input, #area-main img {
+    border: solid var(--semiwhite) 2px;
+    width: 116px;
+    height: 86px;
+}
+
+
 input {
-    border: none;
     border-radius: 1rem;
+    height: 1rem;
 }
 
 #ui-wrap, input {

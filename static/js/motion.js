@@ -4,11 +4,11 @@ var vel = [0,0];
 var pos = [0,0];
 
 document.addEventListener('keydown', function(e) {
-    keys[e.key] = true;
+    keys[e.key.toLowerCase()] = true;
 });
 
 document.addEventListener('keyup', function(e) {
-    keys[e.key] = false;
+    keys[e.key.toLowerCase()] = false;
 });
 
 window.setInterval(function() {
